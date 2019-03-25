@@ -33,7 +33,7 @@ double	deltaTime = 0.0f,
 lastFrame = 0.0f;
 
 //Lighting
-glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+glm::vec3 lightPos(-10.0f, 10.0f, 0.0f);
 
 void myData(void);
 void display(void);
@@ -392,6 +392,10 @@ void my_input(GLFWwindow *window)
 		camera.ProcessKeyboard(LEFT, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+		lightPos = glm::vec3 lightPos(-5.0f, 5.0f, 0.0f);
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+		lightPos = glm::vec3 lightPos(5.0f, -5.0f, 0.0f);
 
 
 }
